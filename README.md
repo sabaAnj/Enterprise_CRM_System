@@ -1,96 +1,106 @@
-# Enterprise CRM System
+# Apex CRM — Enterprise CRM System
 
-A modern Customer Relationship Management (CRM) platform designed to help organizations manage leads, customers, sales pipelines, and business performance efficiently.
+A frontend demo of an Enterprise CRM built with **React 19 + TanStack Start**, **Tailwind CSS v4**, **shadcn/ui**, and **Recharts**. All data is mocked for demonstration purposes — no backend required.
 
-## Features
+> Built as Project #2 (Enterprise CRM System) for the Codec Technologies internship assignment.
 
-- Lead Management
-  - Create, update, and track leads
-  - Organize customer information
+## ✨ Features
 
-- Sales Pipeline Tracking
-  - Visualize deal stages
-  - Monitor sales progress
+### 📊 Dashboard (`/`)
+- KPI cards: Total Revenue, Active Deals, New Leads, Win Rate
+- Revenue trend area chart (12-month view)
+- Lead source distribution pie chart
+- Sales pipeline bar chart by stage
+- Team performance leaderboard
 
-- Dashboard Analytics
-  - View key sales metrics
-  - Monitor business performance
+### 👥 Leads Management (`/leads`)
+- Searchable & filterable lead table
+- Lead status tracking: New, Contacted, Qualified, Lost
+- Lead scoring and source attribution
+- Owner assignment
 
-- Customer Management
-  - Store and manage customer records
-  - Maintain communication history
+### 💼 Sales Pipeline (`/deals`)
+- Kanban board across stages: Lead → Qualified → Proposal → Negotiation → Won
+- Deal value, company, and probability per card
+- Visual pipeline health at a glance
 
-- Role-Based Access
-  - Different access levels for users
-  - Secure data management
+### 🏢 Customer Accounts (`/customers`)
+- Account cards with industry, contacts, and tier
+- Lifetime Value (LTV) tracking
+- Health status indicators
 
-## Tech Stack
+### 📅 Activity Timeline (`/activities`)
+- Unified timeline of calls, emails, meetings, and tasks
+- Linked to leads / deals / customers
+- Owner and timestamp metadata
 
-### Frontend
-- React.js
-- TypeScript
-- Vite
+### 🎨 UX
+- Persistent sidebar navigation (shadcn `Sidebar`)
+- Fully responsive layout
+- Accessible components (Radix primitives)
+- Consistent semantic design tokens (no hardcoded colors)
 
-### Styling
-- CSS
-- Modern UI Components
+## 🛠️ Tech Stack
 
-### Backend (Planned / Extendable)
-- Node.js
-- Express.js
+| Layer | Technology |
+|------|------------|
+| Framework | TanStack Start v1 (React 19, SSR-ready) |
+| Build Tool | Vite 7 |
+| Routing | TanStack Router (file-based) |
+| Styling | Tailwind CSS v4 |
+| Components | shadcn/ui + Radix UI |
+| Charts | Recharts |
+| Icons | lucide-react |
+| Language | TypeScript (strict) |
 
-### Database (Planned / Extendable)
-- MongoDB
-
-## Project Structure
+## 📁 Project Structure
 
 ```
 src/
 ├── components/
-├── pages/
-├── hooks/
-├── services/
-├── assets/
-└── App.tsx
+│   ├── app-shell.tsx        # Sidebar + layout wrapper
+│   └── ui/                  # shadcn primitives
+├── lib/
+│   └── crm-data.ts          # Mock data + TypeScript interfaces
+└── routes/
+    ├── __root.tsx           # Root layout
+    ├── index.tsx            # Dashboard
+    ├── leads.tsx            # Leads table
+    ├── deals.tsx            # Kanban pipeline
+    ├── customers.tsx        # Customer accounts
+    └── activities.tsx       # Activity timeline
 ```
 
-## Installation
-
-Clone the repository:
+## 🚀 Getting Started
 
 ```bash
-git clone https://github.com/sabaAnj/Enterprise_CRM_System.git
+# Install dependencies
+bun install
+
+# Start dev server
+bun dev
+
+# Build for production
+bun run build
 ```
 
-Navigate to the project folder:
+Open <http://localhost:8080> in your browser.
 
-```bash
-cd Enterprise_CRM_System
-```
+## 📸 Screens
 
-Install dependencies:
+- **Dashboard** — executive overview with KPIs and charts
+- **Leads** — qualify and track inbound prospects
+- **Pipeline** — drag-friendly Kanban for deal stages
+- **Customers** — account 360° view
+- **Activities** — chronological CRM history
 
-```bash
-npm install
-```
+## 📝 Notes
 
-Start development server:
+This is a **frontend-only demo**. All data lives in `src/lib/crm-data.ts`. To make it production-ready you'd plug in:
+- Lovable Cloud (Postgres + Auth + RLS) for persistence
+- Server functions for mutations
+- Real-time subscriptions for live updates
 
-```bash
-npm run dev
-```
+## 📄 License
 
-## Future Enhancements
-
-- Email activity tracking
-- Customer communication logs
-- Advanced reporting
-- Team collaboration tools
-- CRM automation workflows
-
-## Author
-
-**Saba Anjum**
-
-GitHub:
-https://github.com/sabaAnj
+MIT — built for educational/internship purposes.
